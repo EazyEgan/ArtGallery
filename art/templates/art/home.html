@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Julius+Sans+One|Poiret+One" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Clare Brophy's Art Gallery</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Added the CDN above from bs wb -->
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+      <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/">
+      <style>
+        .btn-primary{
+          font-size: 30px;
+          background-color: teal;
+          border: none;
+        }
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #e2725b;
+    border-color: #e2725b; /*set the color you want here*/
+}
+            .navbar-nav
+{
+  font-size: 30px;
+}
+    .navbar-brand
+{
+  font-size: 30px;
+}
+      body {padding-top: 70px;
+        font-size: 140%;
+
+
+  font-family: 'Amatic SC', cursive;}
+      </style>
+    </head>
+
+  <body>
+    <header>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">Clare Brophy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto"> <!--Nav Bar Start-->
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'portfolio' %}">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blogs' %}" tabindex="-1" aria-disabled="false">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'store' %}" tabindex="-2" aria-disabled="false">Store</a>
+        </li>
+
+      </ul> <!--Nav Bar End-->
+
+    </div>
+  </nav>
+</header>
+
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Clare Brophy's Art Gallery</h1>
+          <p class="lead text-muted">Athlone born, Clare Brophy has her late grandfather to thank for her early introduction to Art. During sojourns on his farm near Ballinasloe, he taught her to observe the world around her, how seasonal changed impacted the natural environment, the wildlife and the animals he reared. He was a craftsman who encouraged her to use her hands, so while he was busy in his workshop, she would make mud cakes and mini mud sculptures. Childhood memories of the bog lands rich with its hues of purples heathers, muted natural tones coupled with tactile experiences of textures such as bog cotton and báinín (undyed wool) have left her with lifelong grá for nature which proliferated her work.
+<p>
+            <a href="mailto:clarepbrophy@gmail.com" class="btn btn-primary my-2">-Email Me!</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+
+
+
+          <div class="container">
+
+            <div class="row">
+              {% for art in arts.all %}
+
+              {% if art.homepage == 'Yes' %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" src="{{ art.image.url }}">
+              <div class="card-body">
+                <a><p class="card-text">{{ art.summary }}</p></a>
+              </div>
+                  <small class="text-muted">{{ art.pubDate }}</small>
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+            </div>
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Got the js above from bs wb -->
+  </body>
+</html>
